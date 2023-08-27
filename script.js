@@ -94,6 +94,19 @@ const callDisplayBalance = function(movements){
 
 callDisplayBalance(account1.movements);
 
+// Function Creats User Name
+
+const createUserName = function(accs){
+  accs.forEach(function(acc){
+  acc.username = acc.owner
+  .toLowerCase()
+  .split(' ')
+  .map((name) => name[0])
+  .join('');
+});
+};
+createUserName(accounts);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
