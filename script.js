@@ -84,6 +84,16 @@ const displayMovements = function (movements) {
 }
 
 displayMovements(account1.movements);
+
+// Function Calculates An Displays The Account Balance
+
+const callDisplayBalance = function(movements){
+  const balance = movements.reduce((acc, mov, i, arr) => acc + mov);
+  labelBalance.textContent = `${balance} EUR`;
+}
+
+callDisplayBalance(account1.movements);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
