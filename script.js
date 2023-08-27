@@ -75,7 +75,7 @@ const displayMovements = function (movements) {
     const html = `
     <div class="movements__row">
       <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
-      <div class="movements__value">${mov}</div>
+      <div class="movements__value">${mov} \$</div>
     </div>
     `;
 
@@ -89,7 +89,7 @@ displayMovements(account1.movements);
 
 const callDisplayBalance = function(movements){
   const balance = movements.reduce((acc, mov, i, arr) => acc + mov);
-  labelBalance.textContent = `${balance} EUR`;
+  labelBalance.textContent = `${balance} \$`;
 }
 
 callDisplayBalance(account1.movements);
@@ -106,6 +106,19 @@ const createUserName = function(accs){
 });
 };
 createUserName(accounts);
+
+// Function Calculates And Displays Total Deposits
+
+const calcDisplaySummary = function(movemnts){ 
+  const incomes = movemnts
+  .filter((mov) => mov > 0)
+  .reduce((acc, curr) => acc + curr);
+  
+  labelSumIn.textContent = `${incomes}\$`;
+}
+
+calcDisplaySummary(account1.movements);
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
