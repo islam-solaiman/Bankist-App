@@ -83,16 +83,12 @@ const displayMovements = function (movements) {
   });
 }
 
-displayMovements(account1.movements);
-
 // Function Calculates An Displays The Account Balance
 
 const callDisplayBalance = function(movements){
   const balance = movements.reduce((acc, mov, i, arr) => acc + mov);
   labelBalance.textContent = `${balance}$`;
 }
-
-callDisplayBalance(account1.movements);
 
 // Function Creats User Name
 
@@ -109,31 +105,56 @@ createUserName(accounts);
 
 // Function Calculates The Account Summery
 
-const calcDisplaySummary = function(movemnts){ 
-  const incomes = movemnts
+const calcDisplaySummary = function(acc){ 
+  const incomes = acc.movements
   .filter((mov) => mov > 0)
   .reduce((acc, curr) => acc + curr);
-  
   labelSumIn.textContent = `${incomes}$`;
 
-  const outes = movemnts
+  const outes = acc.movements
   .filter((mov) => mov < 0)
   .reduce((acc, curr) => acc + curr);
+  labelSumOut.textContent = `${Math.abs(outes)}$`
 
-  labelSumOut.textContent = `${outes}$`
+  const interest = acc.movements
+  .filter((mov) => mov > 0)
+  .map((deposit) => deposit * acc.interestRate/100)
+  .filter((interest) => interest >= 1)
+  .reduce((acc, curr) => acc + curr);
+  labelSumInterest.textContent = `${interest}$`
 }
 
-calcDisplaySummary(account1.movements);
+// Event Handler 
+
+let currentAccount;
+
+btnLogin.addEventListener('click', function (event){
+  //prevent the form from submitting
+  event.preventDefault();
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value);
+    console.log(currentAccount);
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)){
+    // Display UI and Welcom Message
+    labelWelcome.textContent = `Welcom Back, ${currentAccount.owner.split(' ')[0]}`;
+    containerApp.style.opacity = 100;
+
+    // Clear Input Fields
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginPin.blur();
+
+    // Display Movemnet 
+    displayMovements(currentAccount.movements);
+    // Display Balance 
+    callDisplayBalance(currentAccount.movements);
+    // Display Summery
+    calcDisplaySummary(currentAccount);
+
+  }
+});
 
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
-
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
-
-/////////////////////////////////////////////////
