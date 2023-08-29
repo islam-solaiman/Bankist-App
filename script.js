@@ -126,7 +126,7 @@ const calcDisplaySummary = function(acc){
 }
 
 const updateUi = function(acc){
-      // Display Movemnet 
+      // Display M
       displayMovements(acc.movements);
       // Display Balance 
       callDisplayBalance(acc);
@@ -181,6 +181,23 @@ btnTransfer.addEventListener('click', function(e){
       // Update The Ui
       updateUi(currentAccount);
     }
+})
+
+// Reqest Loan Function 
+
+btnLoan.addEventListener('click', function(e){
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)){
+    // Add The Movement To Current Account
+    currentAccount.movements.push(amount);
+    // Update The Ui With The New Movement
+    updateUi(currentAccount);
+    // Clear Input Amount
+    inputLoanAmount.value = '';
+  }
 })
 
 // Close Account Function 
