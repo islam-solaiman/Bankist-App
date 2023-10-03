@@ -1,7 +1,7 @@
 # Bank List App Project
 
 
-![Alt](https://github.com/islam-solaiman/Banklist-App/blob/main/BankList.gif?raw=true)
+![Alt](https://github.com/islam-solaiman/Banklist-App/blob/main/ezgif.com-video-to-gif.gif?raw=true)
 
 
 ## About The Project:
