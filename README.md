@@ -1,4 +1,4 @@
-# Bank List App Project
+# Bankist App Project
 
 
 ![Alt](https://github.com/islam-solaiman/Banklist-App/blob/main/ezgif.com-video-to-gif.gif?raw=true)
