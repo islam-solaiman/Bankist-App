@@ -21,7 +21,7 @@ interface includes:
         - The user will be able to see welcome back notice with his name 
         - The user will be able to see Current Balance + Account Movements + Account Summery
         - While transfer money to differnet user:
-            - Snder:  the Amount will be deducted from the current balance 
+            - Sender:  the Amount will be deducted from the current balance 
             and will show in the current movements as withdrwal transaction
             - Recever: the amount will be added to the receiver's current balance and will show in 
             hi movements as deposit transaction
