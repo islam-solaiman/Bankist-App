@@ -1,5 +1,7 @@
 'use strict';
 
+alert("Pls use one of the following cresidentioal to login:\n User: js    pin: 1111\n User: jd    pin: 2222\n User: sw   pin: 3333\n User: ss    pin: 4444 ")
+
 class BankistApp {
   constructor() {
     // Data
