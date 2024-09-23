@@ -1,6 +1,6 @@
 # Bankist App Project
 
-# Live Demo :  https://islam-solaiman.github.io/Bankist-App/
+# Live Demo :  https://bankist-ckud2wz81-islam-solaimans-projects.vercel.app/
 
 ![Alt](https://github.com/islam-solaiman/Banklist-App/blob/main/ezgif.com-video-to-gif.gif?raw=true)
 
